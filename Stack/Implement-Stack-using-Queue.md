@@ -2,10 +2,11 @@
 #### Implement Stack operations pop, top, empty, push using Queue
 
 ## Queue operations
-- `peek()` : just returns top element without removing it
-- `poll()` : removes the top element and returns it
+- `peek()` : just returns top element without removing it | `front`
+- `poll()` : removes the top element and returns it | `pop`
 - `.isEmpty()` : checks for empty in queue
 - `.offer()` : inserts element at back of queue
+- `.size()` : size of queue
 
 #### Approach 1 - Use 2 Queues
 - Use 2 Queues
