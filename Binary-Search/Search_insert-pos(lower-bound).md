@@ -1,4 +1,4 @@
-### Lower Bound
+### Lower Bound - SEARCH Insert Position | Leetcode35 - Google | Facebook
 - smallest index `i` such that `arr[i] >= x`
 - TC : O(logN) SC : O(1)
   ```
