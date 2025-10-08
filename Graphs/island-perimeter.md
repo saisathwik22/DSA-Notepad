@@ -77,3 +77,19 @@
   }
   return -1
   ```
+#### Approach 3 - Simple m*n traversal
+- if (i, j) is 1, check UP, if the coordinates are out of bound or cell value is 0, then ans++;
+- same way for DOWN, LEFT, RIGHT
+  ```
+  for(i = 0 ----> m) {
+    for(j = 0 -----> n) {
+      if(grid[i][j] == 1) {
+        if(i+1 >= m || grid[i+1][j] == 0) ans++;
+        if(i-1 < 0 || grid[i-1][j] == 0) ans++;
+        if(j+1 >= n || grid[i][j+1] == 0) ans++;
+        if(j-1 < 0 || grid[i][j-1] == 0) ans++;
+      }
+    }
+  }
+  return ans;
+  ```
