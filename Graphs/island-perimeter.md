@@ -2,9 +2,8 @@
 #### Question: given 2d array of 0s and 1s
 - find perimeter of island in the grid
 - there is only 1 island in the grid
-
 - below test case, yellow stripes are perimeter, answer is 16
-  <img width="221" height="213" alt="image" src="https://github.com/user-attachments/assets/8364cb36-a042-4453-9f24-9fb0ae442d63" />
+<img width="221" height="213" alt="image" src="https://github.com/user-attachments/assets/8364cb36-a042-4453-9f24-9fb0ae442d63" />
 
 #### Approach 1 - DFS
 - step on to cell (grid[i][j] = 1) and apply DFS
@@ -42,4 +41,39 @@
     }
     return -1
   }
+  ```
+#### Approach 2 - BFS
+- Use `Queue<int[]> q = new LinkedList<>()`
+- initialize `int[][] directions = {{1,0}, {-1,0}, {0,1}, {0,-1}}` to explore adjacents
+- step at a cell with value 1, add (i,j) to queue, mark (i,j) visited (-1)
+- now start the iteration and keep going until queue is not empty
+- pop a pair(i, j), explore its UP DOWN LEFT RIGHT
+- if any adjacent is out of bound OR cell value is 0, perimeter++
+- or if any adjacent grid[i_][j_] is -1, its already visited, continue
+- or else push the cell coordinates to queue and mark it visited.
+- after queue is empty return the perimeter
+- TC : O(m*n) SC : O(m*n)
+  ```
+  int BFS(grid, i, j) {
+    ans = 0
+    push (i, j) to Queue q.offer(new int[]{i, j})
+    mark (i,j) as -1 because its visited
+    while(q is not empty){
+      int[] it = q.poll()
+      for(int[] d : directions) {
+        i_ = it[0] + d[0], j_ = it[1] + d[1]
+        if i_ OR j_ are out of bound OR grid[i_][j_] == 0, then ans++;
+        else if i_, j_ already visited, then continue
+        else if i_, j_ cell value is 1, then push (i_,j_) into queue, mark it visited 
+      }
+    }
+    return ans
+  }
+
+  for(i){
+    for(j){
+      if grid[i][j] == 1, then return BFS(grid, i, j)
+    }
+  }
+  return -1
   ```
