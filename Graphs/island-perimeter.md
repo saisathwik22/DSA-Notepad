@@ -56,15 +56,15 @@
   ```
   int BFS(grid, i, j) {
     ans = 0
-    push (i, j) to Queue q.offer(new int[]{i, j})
-    mark (i,j) as -1 because its visited
+    q.offer(new int[]{i, j})
+    grid[i][j] = -1
     while(q is not empty){
       int[] it = q.poll()
       for(int[] d : directions) {
-        i_ = it[0] + d[0], j_ = it[1] + d[1]
+        i_ = it[0] + d[0] ; j_ = it[1] + d[1]
         if i_ OR j_ are out of bound OR grid[i_][j_] == 0, then ans++;
-        else if i_, j_ already visited, then continue
-        else if i_, j_ cell value is 1, then push (i_,j_) into queue, mark it visited 
+        else if grid[i_][j_] == -1 already visited, then continue
+        else if grid[i_][j_] == 1, then push (i_,j_) into queue, mark it visited 
       }
     }
     return ans
