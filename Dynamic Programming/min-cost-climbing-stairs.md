@@ -30,3 +30,15 @@
     return Math.min(solve(0, cost), solve(1, cost))
   }
   ```
+#### Approach - Bottom Up
+- re-write same cost[] array or use different array
+- if n == 2, then return min(cost[0], cost[1])
+- cost[i] = cost[i] + min(cost[i-1], cost[i-2])
+- return min(cost[n-1], cost[n-2])
+  ```
+  if n==2, then return min(cost[0], cost[1])
+  for(i=2; i<n; i++) {
+    cost[i] = cost[i] + min(cost[i-1], cost[i-2])
+  }
+  return min(cost[n-1], cost[n-2])
+  ```
