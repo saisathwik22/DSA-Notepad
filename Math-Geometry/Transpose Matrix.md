@@ -6,7 +6,7 @@
   int[][] arr given
   int m = arr.length;
   int n = arr[0].length;
-  int[][] result = new int[m][n]
+  int[][] result = new int[n][m]
   for(i = 0 ----> m) {
     for(j = 0 ----> n) {
       result[j][i] = arr[i][j]
