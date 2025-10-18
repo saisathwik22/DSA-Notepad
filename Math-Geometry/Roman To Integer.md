@@ -1,6 +1,25 @@
 ### Leetcode 13
 
 
+#### Approach - Hashmap
+- Hash the characters to their numbers
+- start with i=0, compare, if map[s[i]] < map[s[i + 1]] then sum - map[i]
+- else sum + map[i]
+- TC : O(n) Sc : O(7)
+  ```
+  Map<Character, Integer> mp = new HashMap<>();
+  mp.put('I', 1); mp.put('V', 5); mp.put('X', 10); mp.put('L', 10);
+  mp.put('C', 100); mp.put('D', 500); mp.put('M', 1000);
+
+  for(i = 0; i < s.length(); i++) {
+      if(i+1 < s.length() && mp.get(s.charAt(i)) < mp.get(s.charAt(i+1))) {
+          sum -= mp.get(s.charAt(i))
+      }
+      else sum += mp.get(s.charAt(i))
+  }
+  return sum;
+  ```
+
 ```
 class Solution {
     public int romanToInt(String s) {
