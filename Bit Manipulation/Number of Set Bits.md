@@ -44,3 +44,21 @@
   }
   return count
   ```
+
+### Leetcode 338 - AMAZON
+- given n, return ans[] where ans[i] = number of set bits of i (0 <= i <= n)
+- use solve(i) which returns number of set bits of i
+- for solve() function use Brian Kernighan's algo or bit by bit check or java in built function
+- loop from i=0 to i=n, ans[i] = solve(i)
+
+#### Other Approach
+```
+ans[n + 1]
+if n == 0, return ans;
+ans[0] = 0
+for i=1 to i=n {
+  if i%2 == 0, ans[i] = ans[i/2] + 1
+  else ans[i] = ans[i/2]
+}
+return ans
+```
