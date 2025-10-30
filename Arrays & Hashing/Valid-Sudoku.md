@@ -55,3 +55,33 @@
     }
 }
   ```
+
+### Approach 2
+- In every 3x3 subgrid, (i/3, j/3) is same for every element in a subgrid
+- TC : O(81) SC : O(81)
+
+  ```
+  class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        int n = board.length;
+        Set<String> st = new HashSet<>();
+        for(int i = 0; i < 9; i++) {
+            for(int j = 0; j < 9; j++) {
+                if(board[i][j] == '.') continue;
+                String num = String.valueOf(board[i][j]);
+                String row = num + "_row_" + i;
+                String col = num + "_col_" + j;
+                String box = num + "_box_" + (i/3) + "_" + (j/3);
+                if(st.contains(row) || st.contains(col) || st.contains(box)) {
+                    return false;
+                }
+                st.add(row);
+                st.add(col);
+                st.add(box);
+            }
+        }
+        return true;
+
+    }
+}
+  ```
