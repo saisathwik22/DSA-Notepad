@@ -1,7 +1,6 @@
 ### Leetcode 75
-``` Adobe, Amazon, Hike, Makemytrip, MAQ Software, Microsoft, Morgan Stanley, Ola Cabs, OYO Rooms,
-    Paytm, Snapdeal, Qualcomm, Samsung, Walmart, Yatra.com, Flipkart
-```
+`Adobe, Amazon, Microsoft, Morgan Stanley, Flipkart, Paytm, Qualcomm, Samsung, Ola Cabs, Snapdeal, SAP Labs, Walmart, OYO Rooms, Make my trip, MAQ software, Hike, Yatra.com`
+
 - given array of integers 0(red) 1(white) 2(blue) sort them
 
 ### Approach 1 - N*logN
@@ -48,6 +47,8 @@
     }
     else if nums[j] == 0 {
       swap nums[j], nums[i]
+      i++; j++;
     }
+  
   }
   ```
